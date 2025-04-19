@@ -39,7 +39,7 @@ function App() {
       VisionBoard-AI
     </Div>
   </Div>
-  <Div cn="row justify-content-center align-items-center p-0 m-0 ">  
+  <Div cn="row justify-content-center align-items-center p-0 m-0 mb-3 ">  
     <Search onSearch={fetchImage}></Search>
   </Div>
   <Div cn="row justify-content-center align-items-center p-0 m-0 ">

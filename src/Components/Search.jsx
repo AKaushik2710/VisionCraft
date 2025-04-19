@@ -9,7 +9,8 @@ export default function Search(props){
     
     function handleSubmit(e){
         e.preventDefault();
-        onSearch(myQuery)
+        if (myQuery.trim() === "") return;
+        else onSearch(myQuery)
     }
 
     function handleQuery(e){
@@ -19,7 +20,7 @@ export default function Search(props){
     <Div cn="col-4 text-center  text-light">
         <form onSubmit={handleSubmit} className="justify-content-center align-items-center p-0 m-0 ">
             <Div cn="input-group">
-            <Input type="text" cn=" p-2 form-control" placeholder="Enter your name" onChange={handleQuery}/>
+            <Input type="text" cn=" p-2 form-control" placeholder="Enter your vision" onChange={handleQuery}/>
             <Button cn="btn btn-secondary input-group-text" type="submit"><i className="bi bi-search"></i></Button>
             </Div>
         </form>
