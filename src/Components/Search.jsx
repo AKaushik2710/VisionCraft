@@ -3,16 +3,19 @@ import Div from "./Div";
 import Input from "./Input";
 import Button from "./Button";
 
+// Search Component
 export default function Search(props){
     const [myQuery, setmyQuery] = useState("");
     const {onSearch} = props;
     
+// Submission handler
     function handleSubmit(e){
         e.preventDefault();
         if (myQuery.trim() === "") return;
         else onSearch(myQuery)
     }
 
+// Query State Setter
     function handleQuery(e){
         setmyQuery(e.target.value);
     }
