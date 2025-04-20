@@ -3,11 +3,14 @@ import Div from './Div';
 import Image from './Image';
 import Button from './Button';
 
+// Mood Board Component 
 function MoodboardArea({ moodboard, setMoodboard }) {
+// Triggered upon Dragging End
   const onDragEnd = (result) => {
     if (!result.destination) return;
 
     const reordered = Array.from(moodboard);
+// Reordering Dragged Images 
     const [moved] = reordered.splice(result.source.index, 1);
     reordered.splice(result.destination.index, 0, moved);
     setMoodboard(reordered);
