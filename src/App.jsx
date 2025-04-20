@@ -8,25 +8,32 @@ import ImageBoard from './Components/Image_Board.jsx';
 import './index.css'
 import Moodboard from './Components/MoodBoard.jsx';
 
-
+// Importing Unsplash's Access Key 
 const Access_ID = import.meta.env.VITE_UNSPLASH_KEY;
+
+// App Component 
 function App() {
   const [images, setImages] = useState([]);
+
+// Getting Stored MoodleBoard Images
   const [moodboard, setMoodboard] = useState(() => {
     const saved = localStorage.getItem('moodboard');
     return saved ? JSON.parse(saved) : [];
   });
 
+// Setting MoodleBoard Images into Local Storage 
   useEffect(() => {
     localStorage.setItem('moodboard', JSON.stringify(moodboard));
   }, [moodboard]);
   
+// Fetching Images from Unsplash
   const fetchImage = async (query)=>{
     const res = await fetch(`https://api.unsplash.com/search/photos?query=${query}&client_id=${Access_ID}`);
     const data = await res.json();
     setImages(data.results);
   }
 
+// Adding Images to MoodBoard Functionality 
   const addToMoodboard = (img) => {
     if (!moodboard.find((item) => item.id === img.id)) {
       setMoodboard([...moodboard, img]);
