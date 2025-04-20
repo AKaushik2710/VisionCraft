@@ -1,9 +1,12 @@
 import Image from "./Image";
 import Div from "./Div";
 import Button from "./Button";
+
+// Image Board Component
 export default function ImageBoard(props){
     const {images, onAdd} = props;
     return <>
+{/* Images Rendering*/}
     {images.map((image, index)=>{
         return <Div cn="col-12 col-md-6 col-lg-4 mb-3 m-0 " key={index}>
             <Div cn="card ">
